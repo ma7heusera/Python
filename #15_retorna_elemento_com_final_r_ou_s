@@ -1,0 +1,26 @@
+import math
+
+#As funções dos itens abaixo recebem uma lista cujos elementos são strings
+#ou listas compostas por strings/listas de strings) cujo último elemento é necessariamente uma string e
+#a)  retorna o elemento com mais caracteres que finaliza com 'r' ou 's'
+
+#caso não exista um elemento que finaliza com 'r' ou 's', a função deve retornar  a string vazia ('')
+#GARANTIA: O primeiro elemento desta lista (ou sublista) É uma string
+
+
+l1=['descongestionarl','pawrw','art']
+l2=['lapis','onibus','carro','oculos','acelerar','par','ar','descongestionadores','cao']
+
+def stringnofinal_rs(lista):
+    palavra=''
+    maiorvalor=0
+    for (i,el) in enumerate(lista):
+        sub=lista[i]
+        tam=len(sub)
+        letra=sub[-1]
+        if (letra == 'r') or (letra == 's'):
+            if maiorvalor < tam:
+                maiorvalor=tam
+                palavra=sub
+    print('A palavra é: %s'%palavra)
+stringnofinal_rs(l2)

@@ -1,0 +1,44 @@
+#1)	Construa a função montaDatasProvas, que  monta a lista com as datas das provas de todas
+#        as disciplinas do CB como descrito acima. Esta função deve perguntar ao usuário os códigos
+#        das disciplinas e as datas (‘dd/mm’), validando-as e retornar a lista construída.
+#Obs: 	Término da entrada de dados: código da disciplina vazio.
+#Período válido de provas: 15 de maio a 10 de junho
+#Datas inválidas: enviar mensagem adequada
+
+#Após construir e testar sua função montaDatasProvas, utilize a função constroiDatasProvas abaixo,
+#para testar as demais funções de seu programa, evitando a redigitação das datas de provas das disciplinas do CB a cada teste.
+#def constroiDatasProvas():
+    
+def montaDatasProvas():
+    lista=[]
+    subcod=[]
+    cod=input('Entre com o códico da disciplina: ')
+    while cod != '': 
+        mes=int(input('Entre com o mes da prova: '))
+        while mes != 6 and mes != 5:
+            mes=int(input('Data das provas apenas em Maio (5) ou Junho (6) : '))
+        dia=int(input('Entre com o dia da prova: '))
+        if mes == 5:
+            while dia < 15 and dia > 31:
+                dia=int(input('Entre com o dia da prova do dia 15 de maio até 31 de maio '))
+        if mes == 6:
+            while dia < 1 and dia > 10:
+                mes=int(input('Entre com o dia da prova do dia 1 de junho até 10 de junho '))
+        dados=[[mes,dia],cod]
+        for el in lista:
+            subcod=el[1]+subcod
+        if cod not in subcod:
+            lista.append([[mes,dia],cod]);
+        cod=input('Entre com o códico da disciplina: ')
+    print(lista)
+
+    
+
+def constroiDatasProvas():
+    L=[[[6,7],'INF123'],[[6,7],'INF124'],
+       [[5,28],'MAT123'],[[5,29],'CRE123'],
+       [[5,29],'CRE126'],[[5,28],'QUI123'],
+       [[6,7],'FIS123'],[[6,7],'CAL123'],
+       [[6,8],'DES123'],[[6,9],'DES124']
+    ]
+    return L

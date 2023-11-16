@@ -1,0 +1,77 @@
+def le_dados_produtos():
+    arq=open('produtos.txt','r')
+    lista=[]
+    for linha in arq:
+        l1=linha.strip().split('\t')
+        lista.append(l1)
+    return lista
+def busca_dados_produtos():
+    l=le_dados_produtos()
+    lista=[]
+    for el in l:
+        l=el[0]
+        lista.append(l)
+    return lista
+
+
+def le_solicitacao(): #2
+    arq=open('mov.txt','r')
+    lista=[]
+    cont=0
+    for linha in arq:
+        l1=linha.strip().split('\t')
+        lista.append(l1)
+    return lista 
+def busca_solicitacao():#2.1
+    solic=le_solicitacao()
+    listaSolic=[]
+    for el in solic:
+        solicitacao=el[1]
+        listaSolic.append(solicitacao)
+    return listaSolic
+
+    
+
+def gera_saida_arquivo0():
+    slprodutos=le_dados_produtos()
+    slmov=le_solicitacao()
+    slSolicitacao=busca_solicitacao()
+    listasaida=[]
+    for elp in slprodutos:
+        elp0=int(elp[0])
+        elp1=int(elp[1])
+        for els in slmov:
+            els0=int(els[0])
+            els1=els[1]
+            els2=int(els[2])
+            if elp0 == els0:
+                    for el in listasaida:
+                        
+                        if els1 == 's':
+                            ln=elp1-els2
+                        if els1 == 'd':
+                            ln=elp1+els2
+                    listasaida.pop(-1)
+                if els1 == 's':
+                    ln=elp1-els2
+                if els1 == 'd':
+                    ln=elp1+els2
+                saida=[elp0,ln]
+                listasaida.append(ln)
+    return listasaida
+
+def gera_saida_arquivo():
+    listao=gera_saida_arquivo0()
+    
+print(gera_saida_arquivo0())
+print(busca_dados_produtos())
+
+#print(le_dados_produtos())
+#print()
+#print(le_solicitacao())
+#print()
+#print(busca_solicitacao())
+            
+
+        
+    

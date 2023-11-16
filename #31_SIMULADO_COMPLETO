@@ -1,0 +1,128 @@
+1ª Questão Um barman inventou um novo drink que é composto por três ingredientes líquidos. Faça um programa que pergunte ao usuário as quantidades utilizadas, em ml (valores reais), de cada um dos três ingredientes, calcule e exiba o percentual de cada ingrediente na composição do novo drink. Obrigatoriamente, o seu programa deverá utilizar a função abaixo, desenvolvida por você:
+•	função percentual: recebe como parâmetros as quantidades utilizadas de cada um dos três ingredientes, calcula e retorna o percentual do primeiro ingrediente recebido como parâmetro na composição do drink;
+•	Exemplo de execução do programa (apenas um exemplo!!!):
+
+Ingrediente 1?: 10 
+Ingrediente 2?: 25 
+Ingrediente 3?: 15
+
+Percentual do primeiro ingrediente (%): 20.00
+Percentual do segundo  ingrediente (%): 50.00
+Percentual do terceiro ingrediente (%): 30.00
+
+2ª Questão Para resolver o abastecimento de água de uma grande cidade, o governo avalia a largura (em metros), a profundidade (em metros) e a vazão (litros/segundo) de um rio da região. A nota da avaliação do rio é calculada de acordo com as regras abaixo:
+•	Para largura inferior a 15 m, a nota é zero;
+•	Para profundidade inferior a 6 m, a nota é zero;
+•	Para largura entre 15 e 30 m (incluindo os extremos) e profundidade maior ou igual a 6 m, há 2 possibilidades:
+o	Para vazão inferior a 5000 l/s, a nota é: 5 + vazão / 2700;
+o	Para vazão maior ou igual a 5000 l/s, a nota é: 5 + vazão / 2500;
+•	Para largura superior a 30 m e profundidade maior ou igual a 6 m, a nota é:
+5 + vazão / 2000.
+
+a)	Faça a função vazaoRio que recebe como parâmetros a largura, a profundidade e a velocidade do rio e retorna a vazão de acordo com a seguinte fórmula: 
+Vazão = Largura2 x Profundidade x Velocidade.
+b)	Faça a função notaRio que recebe como parâmetros a largura, a profundidade e a velocidade do rio e, utilizando, obrigatoriamente, a função do item a), retorna a nota de acordo com as regras acima. 
+c)	Faça um programa que leia a largura, a profundidade e a velocidade da água de um rio e, utilizando as funções vazaoRio e notaRio, exiba sua nota. O programa deverá exibir também a mensagem “Alternativa viável”, APENAS quando o rio for uma alternativa viável, isto é, a sua nota for maior ou igual a sete (7).
+
+3ª Questão Escreva a função RECURSIVA testaPrefixo, que recebe 2 cadeias de caracteres e retorna:
+1, se uma cadeia é prefixo da outra;
+     	-1, se as cadeias são iguais; 
+      	0, caso contrário.
+Exemplo: “mar”, “maravilha” retorna 1
+                 “caravela”, “cara” retorna 1
+                 “caravela”, “vela” retorna 0
+                  “roupa”, “roupa” retorna -1
+                  “tapa”, “tipo” retorna 0
+
+4ª Questão Escreva a função RECURSIVA trocaAlg, que recebe um número e retorna um novo número onde toda a ocorrência do algarismo 1 é substituída pelo algarismo 8. Não pode usar o str()
+Exemplo: 12314 retorna 82384
+
+
+
+Nome: Matheus Domingues Fernandes Sena
+#Matricula: 1811314
+#Turma: A
+#Professora: Claudia Ferlin
+#Questao 1
+
+import math
+
+def drink(qta,qtb,qtc):
+    qt=qta+qtb+qtc;
+    xa=100*qta/qt;
+    return xa
+
+a =int(input('Entre com o volume do primeiro ingrediente: '))
+     
+b =int(input('Entre com o volume do segundo ingrediente: '))
+
+c =int(input('Entre com o volume do terceiro ingrediente: '))
+
+print('ingrediente 1: %.2f%% ' %drink(a,b,c))
+print('ingrediente 2: %.2f%%  ' %drink(b,a,c))
+print('ingrediente 3: %.2f%% ' %drink(c,a,b))
+
+
+#Nome: Matheus Domingues Fernandes Sena
+#Matricula: 1811314
+#Turma: A
+#Professora: Claudia Ferlin
+#Questao 2
+
+import math
+
+def vazaoRio(larg,prof,vel):
+    vazao = ((larg)**2)*prof*vel;
+    return vazao
+def notaRio(largura,profundi,veloc):
+    
+
+    if largura < 15 or profundi <=6:
+        nota=0
+    else:
+        y=vazaoRio(largura,profundi,veloc)
+        if largura <=30:
+            if (y < 5000):
+                nota = 5+(y/2700)
+            else:
+                nota = 5+(y/2500)
+        else:
+            nota = 5+(y/2000)
+    return nota
+
+a=input((print('Largura do Rio: ')));
+b=input((print('Profundidade do Rio: ')));
+c=input((print('Velocidade do Rio: '))) ;
+
+if notaRio(a,b,c)>= 700:
+    print('Alternativa Viável');
+else:
+    print('Não viavel');
+
+
+#Nome: Matheus Domingues Fernandes Sena
+#Matricula: 1811314
+#Turma: A
+#Professora: Claudia Ferlin
+#Questao 3
+
+import math
+
+def testaPrefixo(palavra,prefixo):
+
+    if palavra[0] != prefixo [0]
+        return 0
+    qt=testePrefixo(palavra,prefixo)
+    if palava[0:qt] == prefixo [0:qt]
+        return 1+qt
+    else:
+        return 1
+    
+        
+
+      
+
+
+
+
+

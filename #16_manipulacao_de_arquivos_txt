@@ -1,0 +1,22 @@
+arqE=open("notas.txt",'r')
+linha=arqE.readline()
+while linha :
+    linha=linha.strip()
+    ldados=linha.split(' ')
+    nome=ldados[0]
+    nota=float(ldados[1])
+    print('Nome %s - Nota %1.f'%(nome,nota))
+    linha=arqE.readline()
+arqE.close()
+    
+arqE=open("notas.txt",'r')
+arqS=open("resultados.txt",'w')
+for linha in arqE :
+    linha=linha.strip()
+    ldados=linha.split(' ')
+    nome=ldados[0]
+    nota=float(ldados[1])
+    arqS.write('Nome %s - Nota %1.f\n'%(nome,nota))
+    linha=arqE.readline()
+arqE.close()
+arqS.close()

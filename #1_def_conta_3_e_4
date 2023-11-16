@@ -1,0 +1,10 @@
+def contaalg34(n):
+    if n == 0:
+        return 0
+    if n % 10 == 3 or n % 10 == 4:
+        return 1 + contaalg34 (n // 10)
+    else:
+        return contaalg34 (n // 10)
+
+n=int(input('Número inteiro?'))
+print('Os algarimos 3 e 4 ocorrem %d vezes no número %d'%(contaalg34(n),n))

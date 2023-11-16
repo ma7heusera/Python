@@ -1,0 +1,55 @@
+def carregaLocais():
+    arq=open('locais.txt','r')
+    n=int(arq.readline())
+    lstLocais=[]
+    for i in range(n):
+        lstLocais.append(arq.readline().strip())
+
+    arq.close()
+    return lstLocais
+
+def carregaDistancias():
+    arq=open('distancias.txt','r')
+    qc=int(arq.readline())
+    lstDist=[]
+    for i in range(qc):
+        dist=[]
+        for j in range(qc):
+            tempo=(arq.readline()).strip()
+            dist.append(tempo)
+
+        lstDist.append(dist)
+
+    arq.close()
+    return lstDist
+    
+def busca(lista,local):
+    for i in range(len(lista)):
+        if lista[i]==local:
+            return [True,i]
+    return [False,'']
+
+lstLocais=carregaLocais()
+lstTempo=carregaDistancias()
+
+
+orig=input('Origem?')
+while orig!='###':
+    r1=busca(lstLocais,orig)
+    if r1[0]==False:
+        print('Local inexistente')
+    else:
+        dest=input('Destino?')
+        if dest==orig:
+            print('Origem e destinos são iguais')
+        else:
+            r2=busca(lstLocais,dest)
+            if r2[0]==False:
+                print('Local inexistente')
+            else:
+                print('Tempo de voo:',lstTempo[r1[1]][r2[1]])
+
+    orig=input('Origem?')
+            
+        
+

@@ -1,0 +1,35 @@
+import random
+import math
+' Número sorteador está dentro do ou fora do intervalo?'
+' Média dos valores sorteados fora do intervalo'
+
+n=int(input('Qauanto numeros'))
+contaDentro=0
+qtas=0
+somaTodos=0
+menorValornointervalo=16
+somafora=0
+contafora=0
+while(qtas <= n):
+
+    num=random.randint(0,30)
+    somaTodos+=num
+    if (num >=1 and num <=15):
+            print('Numero %d  esta dentro do intervalo'%num)
+            contaDentro+=1
+            if num < menorValornointervalo:
+                menorValornointervalo=num
+    else:
+            print('Numero %d não está dentro do intervalo'%num)
+    qtas=qtas + 1
+print('%d numeros sorteados dentro do intervalo'%contaDentro)
+print('%d - soma numeros sorteados '%somaTodos)
+print('%.2f - media dos numeros sorteados'%(somaTodos/n))
+if menorValornointervalo == 16:
+    print('Nenhum numero sorteado no intervalo')
+else:
+    print('%d - menor valor sorteado dentro do intervalo'%menorValornointervalo)
+if contafora == 0:
+    print('Nenhum numero sorteado')
+else:
+    print('%.2f - media dos numeros sorteados')

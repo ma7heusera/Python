@@ -1,0 +1,91 @@
+#exercicio editora de livros
+
+
+def le_livros():
+    lista_livros_arq=[]
+    arq=open('livros.txt','r')
+    for linha in arq:
+        linha1=linha.strip()
+        linha22=arq.readline()
+        linha2=linha22.split()
+        linha2[0]=int(linha2[0])
+        linha2[1]=int(linha2[1])
+        linha2[2]=int(linha2[2])
+        linha2[3]=int(linha2[3])
+        linha2[4]=int(linha2[4])
+        l=[linha1],[linha2[0],linha2[1],linha[2],linha[3],linha[4]]
+        lista_livros_arq.append(l)
+    return lista_livros_arq
+
+def le_atualizacoes():
+    lista_atualizacoes_arq=[]
+    arq=open('atualizacoes.txt','r')
+    for linha in arq:
+        linha1=linha.strip()
+        linha2=arq.readline()
+        linhaeditora=linha2.split()
+        linhalivro=[[linha1],linhaeditora]
+        lista_atualizacoes_arq.append(linhalivro)
+    return lista_atualizacoes_arq
+
+def controlaestoque(l1,l2):
+    listafinal=[]
+    # l1 - lista de livros com o estoque de cada editora (parametro)
+    # l2 - lista de atualizacoes de cada livro
+    for linha1 in l1:
+        titl1=linha1[0]
+        posedl1=linha1[1]
+        for linha2 in l2:
+            titl2=linha2[0]
+            edl2=int(linha2[1][0])
+            trl2=linha2[1][1]
+            ntl2=int(linha2[1][2])
+            if titl2 == titl1:
+                pos_vr=edl2-1
+                qtdlivrosl1=int(posedl1[edl2-1])    #estoque da editora da l1 
+                if trl2 == 'v':
+                    qtdlf=qtdlivrosl1 - ntl2
+                if trl2 == 'r':
+                    qtdlf=qtdlivrosl1 + ntl2
+                    print(qtdlf)
+                posedl1[pos_vr]=qtdlf
+        l=titl1,posedl1
+        listafinal.append(l)
+    return listafinal
+
+def gera(lista):
+    arq=open('finaldag3.txt','w')
+    print("Livros e estoques Atualizados")
+    for el in lista:
+        arq.write("%s"%el[0]+'\n')
+    arq.close()
+
+
+            
+
+l1=le_livros()
+l2=le_atualizacoes()
+#gera(controlaestoque(l1,l2))
+#print(l1)
+#print(l2)
+
+
+def gera_relatorio_final(lLivros):
+    arq = open('FINAL.TXT','w')
+    print("Livros com estoque zerado em todas as distribuidoras:")
+    for el in lLivros:
+        arq.write ("%s"%el[0]+'\n')
+        cont = 0
+        for val in el[1]:
+            arq.write("%5d"%val)
+            if val==0:
+                cont+=1
+        arq.write("\n")
+        if cont == 5:   #estoque zerado em todas distribuidoras
+            print(el[0])
+    arq.close()
+    dist = menor_quantidade(lLivros)
+    print("\nCodigo da distribuidora com menor quantidade de livros: %d"%dist)
+    return
+print(l1)
+#gera_relatorio_final(l1)

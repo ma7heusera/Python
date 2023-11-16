@@ -1,0 +1,9 @@
+def imprime_vertical_num (num):
+    if num < 10:
+        print (num)	
+        return					
+    imprime_vertical_num (num // 10)
+    print (num % 10)
+
+n=int(input('Número inteiro positivo?'))
+imprime_vertical_num(n)

@@ -1,0 +1,18 @@
+import math
+def reptVogal (s):
+    if s == '':
+        return ''
+    elif (s[0] in 'aeiouAEIOU'):
+        return s[0] * 2 + reptVogal(s[1:])
+    reptVogal(s)
+s=input('entre com palavra: ')
+print(reptVogal(s))
+
+import math
+def reptChar (s):
+    if s == '':
+        return ''
+    return s[0] * 2 + reptChar(s[1:])
+
+s=input('entre com a palavra: ')
+print(reptChar(s))

@@ -1,0 +1,7 @@
+def duplica_char (s):
+    if s == '':
+        return ''
+    return s[0] * 2 + duplica_char (s[1:])
+
+s=input('String?')
+print(duplica_char(s))

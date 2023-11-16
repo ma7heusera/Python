@@ -1,0 +1,27 @@
+mport math
+
+
+#Faça um programa que pergunte 6  nomes ao usuário, inserindo-os em uma lista
+#A seguir, leia vários nomes (término nome ==”fim”)  e para cada um, caso  já exista na lista,
+#transforme-o em maiúsculo, senão insira-o. 
+#A cada nome processado, a lista deve ser exibida.
+
+def verifica(lista):
+    nome=''
+    for (i,el) in enumerate(lista):
+        sub=lista[i]
+        nomeinicial=lista[0]
+        if  nomeinicial == sub:
+            m = sub.upper()
+            L.append(m)
+    print(l)
+
+
+l=[]
+L=[]
+cont=0
+while cont < 6:
+    a=input('Entre com uma palavra: ')
+    l.append(a)
+    cont=cont+1
+verifica(l)

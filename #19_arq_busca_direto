@@ -1,0 +1,8 @@
+import math
+arq = open("disciplinas.txt","r")
+linha=arq.readline()
+for linha in arq:
+    linha=linha.strip()
+    dado=linha.split('    ')
+    print(dado[0])
+arq.close()

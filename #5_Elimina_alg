@@ -1,0 +1,10 @@
+def elimina_alg (n, digito):
+    if n == 0:
+        return 0
+    if n % 10 == digito:
+        return elimina_alg (n // 10, digito)
+    return elimina_alg (n // 10, digito) * 10 + n % 10
+
+n=int(input('Número inteiro positivo?'))
+a=int(input('Dígito?'))
+print(elimina_alg(n,a))

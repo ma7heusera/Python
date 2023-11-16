@@ -1,0 +1,122 @@
+
+def busca_min():
+    l=[]
+    arqE=open('minimo.txt','r')
+    for linha in arqE:
+        linha=linha.strip()
+        ldados=linha.split(" ")
+        l.append(ldados)
+    return l
+    arqE.close()
+
+def busca_pts():
+    l=[]
+    arqE=open('pontos.txt','r')
+    for linha in arqE:
+        linha=linha.strip()
+        ldados=linha.split(" ")
+        l.append(ldados)
+    return l
+    arqE.close()
+
+def linha_insc():
+    l=[]
+    pts=busca_pts()
+    for el in pts:
+        subl=el[0][0:4]
+        ldados=subl.split(" ")
+        l.append(ldados)
+    return l
+
+def linha_pts():
+    l=[]
+    pts=busca_pts()
+    for el in pts:
+        subl=el[0][5:8]
+        ldados=subl.split(" ")
+        l.append(ldados)
+    return l
+
+def linha_cod1():
+    l=[]
+    pts=busca_pts()
+    for el in pts:
+        subl=el[0][9:12]
+        ldados=subl.split(" ")
+        l.append(ldados)
+    return l
+
+def linha_cod2():
+    l=[]
+    pts=busca_pts()
+    for el in pts:
+        subl=el[0][13:16]
+        ldados=subl.split(" ")
+        l.append(ldados)
+    return l
+
+def linha_cod3():
+    l=[]
+    pts=busca_pts()
+    for el in pts:
+        subl=el[0][17:20]
+        ldados=subl.split(" ")
+        l.append(ldados)
+    return l
+def linha_cod():
+    l=[]
+    pts=busca_min()
+    for el in pts:
+        subl=el[0][0:3]
+        ldados=subl.split(" ")
+        l.append(ldados)
+    return l
+
+def linha_minpts():
+    l=[]
+    pts=busca_min()
+    for el in pts:
+        subl=el[0][4:7]
+        ldados=subl.split(" ")
+        l.append(ldados)
+    return l
+
+def resultado_enem():
+    alunos=linha_insc()
+    minipts=linha_minpts()
+    pts=linha_pts()
+    cod=linha_cod()
+    cod1=linha_cod1()
+    cod2=linha_cod2()
+    cod3=linha_cod3()
+    for (j,el) in enumerate (alunos):
+        if pts[j] >= minipts[2]:
+            print('          ALUNO: ',alunos[j])
+            for (i,el) in enumerate (cod):
+                if (cod1[j] == el) and (pts[j] >= minipts[i]):
+                    print('Opcao 1: Aprovado em %s.'%(cod1[j]))
+            for (i,el) in enumerate (cod):
+                if (cod2[j] == el) and (pts[j] >= minipts[i]):
+                    print('Opcao 2: Aprovado em %s.'%(cod2[j]))
+            for (i,el) in enumerate (cod):
+                if (cod3[j] == el) and (pts[j] >= minipts[i]):
+                    print('Opcao 3: Aprovado em %s.\n'%(cod3[j]))
+        else:
+            print()
+            print('Aluno: %s não foi aprovado em nenhum curso pois nao alcançou a pontuação mínima de 670 pts.'%alunos[j])
+resultado_enem()
+
+#print(linha_cod(),'COD')
+#print(linha_minpts(),'MINPTS')
+#print()
+#print(linha_insc(),'N INSC')
+#print(linha_pts(),'PTS')
+#print(linha_cod1(),'COD1')
+#print(linha_cod2(),'COD2')
+#print(linha_cod3(),'COD3')
+
+
+
+
+
+    

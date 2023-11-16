@@ -1,0 +1,65 @@
+Faça uma função para permitir que um usuário altere sua senha. Esta função receba uma lista com seu login e uma sublista com suas últimas senhas, na ordem inversa à criada ( isto é, a 1ª senha da lista é a senha atual que foi criada por último) 
+Para alterar sua senha, o usuário deverá digitar seu login, caso esteja correto, o usuário deverá, digitar a senha  atual.  Se ela estiver correta, o usuário  poderá alterar sua senha, digitando duas vezes a nova senha. Esta nova senha será aceita como atual, caso ela não seja igual às 5 últimas senhas.
+Fase 1:
+lUser=[ 	['huguinho',[ '12345']],
+		['luisinho', ['2345']],
+		['zezinho', ['1111']],
+		['lala',  ['12345']],
+		['lele',  ['2345'],
+		['lili',  ['oi']]
+	  ]
+
+
+Para testar sua função considere a seguinte lista de usuários:
+lUser=[ 	['huguinho', ['12345','2134','123','55555','aaaa']],
+		['luisinho', ['2345','bbbb','bbcc']],
+		['zezinho', ['1111']],
+		['lala',  ['12345','2134','bbbbb','aaaa']],
+		['lele',  ['2345','bbbb']],
+		['lili',  ['oi','tchau','secreta']]
+	  ]
+
+
+def busca(l,procurado):
+    # retornar o lugar onde o procurado está na lista,
+    # ou None se não estiver
+    for (i,el) in enumerate(l):
+        # o elemento é [nome,lsenhas]
+        if procurado == el[0]:
+            return i
+    return None
+        
+
+lUser=[ 	['huguinho', ['12345','2134','123','55555','aaaa']],
+		['luisinho', ['2345','bbbb','bbcc']],
+		['zezinho', ['1111']],
+		['lala',  ['12345','2134','bbbbb','aaaa']],
+		['lele',  ['2345','bbbb']],
+		['lili',  ['oi','tchau','secreta']]]
+
+
+login=input("Login: ")
+senAt=input("Senha: ")
+pos = busca(lUser,login)
+if pos == None:
+    print("Login inválido")
+else:
+    user = lUser[pos] # [nome,lSenha]
+    lsenha= user[1]
+    if lsenha[0]!= senAt:
+        print("Senha inválida")
+    else:
+        novaSenha= input("Nova senha:")
+        confSenha= input("Confirma nova senha:")
+        
+        if novaSenha != confSenha:
+            print(" Não conferem")
+        else:
+            if novaSenha in lsenha:
+                print("Usada recentemente")
+            else:
+                lsenha.insert(0,novaSenha)
+                if len(lsenha)== 6:
+                    lsenha.pop()
+                print(lUser)
+            

@@ -1,0 +1,147 @@
+#1 - colocando:[[cod1,[qtd1],[cod2,[qtd2]]
+
+def le_produtos():
+    listaparam=[]                           # busca usa enumerate
+    arq=open('produtos.txt','r')            # contar elemento for
+    for linha in arq:
+        linha1=linha.strip()
+        sublinha=linha1.split()
+        print(sublinha)
+        sublinha[0]=int(sublinha[0])
+        sublinha[1]=int(sublinha[1])
+        sublista=[sublinha[0],sublinha[1]]
+        listaparam.append(sublista)
+    arq.close()
+    return listaparam
+
+    
+#2 - funcao busca
+
+def busca(cod,lparametro):
+    el=lparametro[0]
+    for (i,el) in enumerate (lparametro):
+        if el[0] in lparametro:
+            print(i)
+            return i
+    return None
+    
+#3 - funcao atualiza_informacaoes
+
+def atualiza_informacoes(lparam):
+    listaDistrfinal=[]
+    listafinal=[]
+    listaDistr=[]
+    qtdtotal=0
+    sublinhaint=[]
+    arq=open('mov.txt','r')
+    for linha in arq:
+        linha1=linha.strip()
+        sublinha=linha1.split()
+        print(sublinha)
+        sublinha[0]=int(sublinha[0])
+        sublinha[2]=int(sublinha[2])
+        sublinhaint=[sublinha[0],sublinha[2]]
+        pos=busca(sublinhaint[0],lparam)
+        if pos != None:
+            listaDistr=lparam[pos][1]
+            acao=sublinha[1]
+            qtd=sublinhaint[1]
+            acao=sublinha[1]
+            if acao == 's':
+                listaDistrfinal=listaDistr-qtd
+            elif acao == 'd':
+                listaDistrfinal=listaDistr+qtd
+    print(listaDistrfinal)
+    arq.close()
+
+a=le_produtos()
+print(a)
+
+#4 - funcao gera relatorio
+
+#def gera_saida_arquivo(listafinal):
+#    arq=open('novo.txt','w')
+#    for el in arq:
+#    return
+
+
+
+
+
+          OU
+
+
+
+def le_produtos():
+    listaprodutos=[]
+    arq=open('produtos.txt','r')
+    for linha in arq:
+        linha1=linha.strip()
+        sublinha=linha1.split()
+        sublinha[1]=int(sublinha[1])
+        subl=[sublinha[0],sublinha[1]]
+        listaprodutos.append(subl)
+    return listaprodutos
+def le_solicitacoes():
+    listasolicitacoes=[]
+    arq=open('mov.txt','r')
+    for linha in arq:
+        linha1=linha.strip()
+        sublinha=linha1.split()
+        sublinha[2]=int(sublinha[2])
+        subl=[sublinha[0],sublinha[1],sublinha[2]]
+        listasolicitacoes.append(subl)
+    return listasolicitacoes
+#print(le_solicitacoes())                #APENAS LEITURA
+#############################################################################
+
+
+
+
+
+
+
+
+
+##############################################################
+
+def script(listaprodutos,listasolicitacoes):
+    listafinal=[]
+    for elp in listaprodutos:
+        codp=elp[0]
+        qtdp=elp[1]
+        for els in listasolicitacoes:
+            soma=0
+            cods=els[0]
+            solicitacao=els[1]
+            qtds=els[2]
+            if cods == codp:
+                if solicitacao == 's':
+                    qtdp=qtdp-qtds
+                elif solicitacao == 'd':
+                    qtdp=qtdp+qtds
+            soma=soma+qtdp
+        lps=[codp,soma]
+        listafinal.append(lps)
+    return(listafinal)
+
+listaf=script(le_produtos(),le_solicitacoes())
+#############################################################
+
+def gera_relatorio(listafinal):
+    arq=open('novo.txt','w')
+    for el in listafinal:
+        arq.write("%s\t%d"%(el[0],el[1])+'\n')
+    arq.close()
+
+############################################################
+gera_relatorio(listaf)
+
+
+
+
+
+
+
+
+

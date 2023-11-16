@@ -1,0 +1,4 @@
+#ex#6: Calculando pi, usnado as funcoes arco-seno/inversa do seno
+import math
+x=0.2
+Pi=2*((math.asin(math.sqrt(1-(x**2))))+(math.fabs(math.asin(x))))

@@ -1,0 +1,73 @@
+import math
+lRes=[[1010,'Esc1',['o','o','o','p','p']], [2010,'Esc2',['o','p','b','p','b']], [1020,'Esc1',['b','p']], [1030,'Esc1',['b']], [3010,'Esc3',['o','o','o','o','p','o','o']],
+
+          [2010,'Esc2',['b','b','b']],  [3020,'Esc3',['o','o']]]
+
+#Construa uma função que receba a lista lRes e retorne uma nova lista onde cada elemento possui as seguintes informações: [nome da escola, pontos totais]
+
+#Construa um programa que tenha a partir da lista lRes mostre:
+      #Para cada escola que participou da competição: o total geral de pontos da escola;
+      #O nome da escola campeã com seu total de pontos (considere que não há empate. 
+#O total geral de pontos é calculado da seguinte forma:
+
+#Construa um programa que tenha a partir da lista lRes mostre:
+#      Para cada escola que participou da competição: o total geral de pontos da escola;
+ #     O nome da escola campeã com seu total de pontos (considere que não há empate. 
+#O total geral de pontos é calculado da seguinte forma:
+#1 medalha de ouro contabiliza 5 pontos;
+#1 medalha de prata contabiliza 3 pontos;
+#1 medalha de bronze contabiliza 1 ponto.
+
+
+def contouro(lista):
+    conto=0
+    for el in (lista):
+        listamedalha=lista[2]
+    for el in (listamedalha):
+        if el == 'o':
+            conto=conto+1
+    return conto
+def contprata(lista):
+    contp=0
+    for el in (lista):
+        listamedalha=lista[2]
+    for el in (listamedalha):
+        if el == 'p':
+            contp=contp+1
+    return contp
+def contbronze(lista):
+    contb=0
+    for el in (lista):
+        listamedalha=lista[2]
+    for el in (listamedalha):
+        if el == 'b':
+            contb=contb+1
+    return contb
+
+esc1=0
+esc2=0
+esc3=0
+somaesc1=0
+somaesc2=0
+somaesc3=0
+for (i,el) in enumerate(lRes):
+    listaescola=lRes[i][1]
+    if listaescola == 'Esc1':
+        esc1=(5*contouro(lRes[i])+3*contprata(lRes[i])+contbronze(lRes[i]))
+        somaesc1=esc1+somaesc1
+    if listaescola == 'Esc2':
+        esc2=(5*contouro(lRes[i])+3*contprata(lRes[i])+contbronze(lRes[i]))
+        somaesc2=esc2+somaesc2
+    if listaescola == 'Esc3':
+        esc3=(5*contouro(lRes[i])+3*contprata(lRes[i])+contbronze(lRes[i]))
+        somaesc3=esc3+somaesc3
+print('Escola 1 : %d pts'%somaesc1)
+print('Escola 2 : %d pts'%somaesc2) 
+print('Escola 3 : %d pts'%somaesc3)
+
+if somaesc1 > somaesc2 and somaesc1 > somaesc3:
+    print('Escola 1 campeã: %d pts'%somaesc1)
+if somaesc2 > somaesc1 and somaesc2 > somaesc3:
+    print('Escola 2 campeã: %d pts'%somaesc2)
+if somaesc3 > somaesc1 and somaesc3 > somaesc2:
+    print('Escola 3 campeã: %d pts'%somaesc3)

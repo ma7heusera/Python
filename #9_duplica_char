@@ -1,0 +1,12 @@
+def inverteDois(s):
+    l=len(s)
+    if l==0:
+        return ''
+    elif l==1:
+        return s[0]
+    else:
+        return s[1]+s[0]+inverteDois(s[2:])
+            
+s=input('String')
+print(inverteDois(s))
+

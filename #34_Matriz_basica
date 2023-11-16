@@ -1,0 +1,33 @@
+def mediaCadaAluno(matriz):
+    # P/cada aluno
+    #   P/ cada prova
+    #       soma nota da prova i do aluno
+    #   calcula e exibe a media
+
+    for (i,linhaaluno) in enumerate(matriz): # linha --> dados aluno
+        print ("\nNotas do aluno %d:"%(i+1))
+        soma=0
+        for nota in linhaaluno:
+            print(nota, end='\t')
+            soma+=nota
+        print(" \t--> Média: %.1f"%(soma/len(linhaaluno)))
+    return
+
+def mediaCadaProva(matriz):
+    # P/cada prova
+    #   P/ cada aluno
+    #       soma nota do aluno i na prova
+    #   calcula e exibe a media
+    qtProvas = len(matriz[0])
+    for prova in range(0,qtProvas):
+        soma=0
+        for linhaaluno in matriz:
+            soma+=linhaaluno[prova]
+        media=soma/len(matriz)
+        print("\nMédia Prova %d: %.1f"%(prova+1,media))
+    return
+   
+
+matriz=[[9,3,5],[7,2,4],[7.5,4.5,4.5],[6.8,6,6]]
+mediaCadaAluno(matriz)
+mediaCadaProva(matriz)

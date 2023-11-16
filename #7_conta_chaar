@@ -1,0 +1,14 @@
+def contaChar(char,s):
+    if s=='':
+        return 0
+
+    qtd=contaChar(char,s[1:])
+    if s[0]==char:
+        qtd+=1
+
+    return qtd
+        
+
+s=input('String?')
+a=input('Caractere?')
+print('O caractere %s aparece %d vezes na string %s'%(a,contaChar(a,s),s))

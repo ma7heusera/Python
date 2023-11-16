@@ -1,0 +1,29 @@
+import math
+def potencia(x,y):
+    if y==0:
+        return 1
+    resp=potencia(x,y-1)
+    res=resp*x
+    return res
+
+print (potencia(2,3))
+
+import math
+def somaAlgarismo(num):
+    if num<10:
+        return num
+    unidade=num%10
+    somaDosAlgdaPartedaFrente=somaAlgarismo(num//10)
+    res=somaDosAlgdaPartedaFrente + unidade
+    return res
+print(somaAlgarismo(321))
+
+import math
+def somaAlgarismo(num):
+    if num<10:
+        return num
+    unidade=num%10
+    somaDosAlgdaPartedaFrente=somaAlgarismo(num//10)
+    res=somaDosAlgdaPartedaFrente + unidade
+    return res
+print(somaAlgarismo(321))

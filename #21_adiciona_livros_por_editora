@@ -1,0 +1,45 @@
+def le_livros():
+    arq=open('livros.txt','r')
+    listao=[]
+    for (i,linha) in enumerate (arq):
+        linha1=linha.strip()
+        linha2=arq.readline().strip().split(' ')
+        subl=[linha1,int(linha2)]
+        listao.append(subl)
+    return listao
+def le_atualizacoes():
+    arq=open('atualizacoes.txt','r')
+    listao=[]
+    for (i,linha) in enumerate(arq):
+        linha1=linha.strip()
+        linha2=arq.readline().strip().split(' ')
+        subl=[linha1,linha2]
+        listao.append(subl)
+    return listao
+
+def atualiza():
+    listalivros=le_livros()
+    listaAtualizacoes=le_atualizacoes()
+    soma=[]
+    for (i,ell0) in enumerate (listalivros):
+        lunidades=ell0[1]
+        for n in lunidades:
+            nl=int(n[0])
+        for ela0 in listaAtualizacoes()
+            if ell0 == ela0
+                Ed=ela[0]
+                RouV=ela0[1]
+                n=ela1[2]
+                for ela1 in RouV:
+                if ela1 == 'v':
+                        soma=nl-ell0
+                if ela1 == 'f':
+                        soma=nl+ell0
+
+                listao.append(soma)
+
+
+                
+                        
+                
+    

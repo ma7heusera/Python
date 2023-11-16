@@ -1,0 +1,9 @@
+def exibeString(s):
+    if len(s)==0:
+        return
+    print(s)
+    exibeString(s[1:])
+
+      
+s=input('String?')
+exibeString(s)

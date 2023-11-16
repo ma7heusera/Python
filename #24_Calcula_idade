@@ -1,0 +1,40 @@
+import math
+
+
+def calcIdade( dtN,dtAtu,nome):
+    diaN=dtNasc[:2]
+    mesN=dtNasc[3:5]
+    anoN=dtNasc[6:]
+    diaA=dtAtu[:2]
+    mesA=dtAtu[3:5]
+    anoA=dtAtu[6:]
+    idade=int(anoA)-int(anoN)
+    dtN==dtAtu
+    if (diaA==diaN) and (mesA==mesN):
+        x=30*(mesN+diaN)
+            if (dtN%2==0) and (nome[0] == nome[:1])
+                v=1.1*x
+                return print('Seu premio é: %d'%v)
+
+    elif mesA==mesN:
+        y=20*mesN
+            if (dtN%2==0) and (nome[0] == nome[:1])
+            v=1.1*y
+                return print('Seu premio é: %d'%v)
+
+    elif diaA==diaN:
+        z=0.5*diaN
+            if (dtN%2==0) and (nome[0] == nome[:1])
+            v=1.1*z
+                return print('Seu premio é: %d'%v)
+    else:
+        print('Não tem direito')
+        return
+    return
+
+    
+nome=input ('Entre com seu nome')
+dtNasc=input ( "Dt de nascimento? dd/mm/aaaa")
+dtAtual=input (" Dt desejada?  dd/mm/aaaa")
+idade = calcIdade(dtNasc,dtAtual)
+exibeMensagem(idade)

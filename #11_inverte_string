@@ -1,0 +1,7 @@
+def inverte_s (s):
+    if s == '':
+        return ''
+    return inverte_s (s[1:]) + s[0]
+
+s=input('String')
+print(inverte_s(s))

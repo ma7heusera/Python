@@ -1,0 +1,15 @@
+def procurachar (s, c):
+    if s == '':
+        return False
+    if s[0] == c:
+        return True
+
+    return procurachar (s[1:], c)
+
+s=input('String?')
+a=input('Caractere?')
+
+if procurachar(s,a):
+    print('O caractere',a,'está presente na string',s)
+else:
+    print('O caractere',a,'NÃO está presente na string',s)
